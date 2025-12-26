@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Developer Account Guide - WDA Runner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5a;
+            --accent-primary: #6c5ce7;
+            --accent-secondary: #a29bfe;
+            --success: #00b894;
+            --warning: #f39c12;
+            --info: #0984e3;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --radius-md: 12px;
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin: 20px 0 12px 0;
+            color: var(--text-secondary);
+        }
+
+        .card p,
+        .card li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .card ul,
+        .card ol {
+            padding-left: 24px;
+        }
+
+        .alert {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+
+        .alert-info {
+            background: rgba(9, 132, 227, 0.1);
+            border-left: 4px solid var(--info);
+        }
+
+        .alert-warning {
+            background: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--warning);
+        }
+
+        .alert-success {
+            background: rgba(0, 184, 148, 0.1);
+            border-left: 4px solid var(--success);
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #e0e5ec 0%, #f5f7fa 100%);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 16px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .image-placeholder span {
+            display: block;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 20px;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .external-link:hover {
+            background: rgba(108, 92, 231, 0.2);
+        }
+
+        code {
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--accent-primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(162, 155, 254, 0.1));
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-primary);
+            margin-bottom: 12px;
+        }
+
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .cost-table th,
+        .cost-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cost-table th {
+            background: var(--bg-primary);
+            font-weight: 600;
+        }
+
+        .cost-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .free-badge {
+            background: var(--success);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to WDA Runner</a>
+
+        <h1>🍎 Apple Developer Account Guide</h1>
+        <p class="subtitle">Everything you need to know about getting an Apple Developer account for iOS automation</p>
+
+        <!-- Why Required -->
+        <div class="card">
+            <h2>❓ Why is a Developer Account Required?</h2>
+            <p>To run WebDriverAgent (WDA) on a <strong>physical iOS device</strong>, you need to sign the application
+                with a valid Apple Developer certificate. This is a security requirement enforced by iOS - only signed
+                apps can run on real devices.</p>
+
+            <div class="alert alert-info">
+                <strong>📱 Simulators:</strong> You do NOT need a Developer account to run WDA on iOS Simulators.
+                Simulators don't require code signing.
+            </div>
+
+            <h3>What the Developer Account provides:</h3>
+            <ul>
+                <li><strong>Development Team ID</strong> - A unique identifier for code signing</li>
+                <li><strong>Signing Certificates</strong> - Digital certificates to sign your apps</li>
+                <li><strong>Provisioning Profiles</strong> - Permissions to install apps on specific devices</li>
+            </ul>
+        </div>
+
+        <!-- Account Types -->
+        <div class="card">
+            <h2>💳 Account Types & Costs</h2>
+            <table class="cost-table">
+                <thead>
+                    <tr>
+                        <th>Account Type</th>
+                        <th>Cost</th>
+                        <th>Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Free Apple ID</strong></td>
+                        <td><span class="free-badge">FREE</span></td>
+                        <td>
+                            • Develop on up to 3 devices<br>
+                            • Apps expire every 7 days<br>
+                            • Limited provisioning profiles<br>
+                            • Good for testing
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apple Developer Program</strong></td>
+                        <td>$99/year</td>
+                        <td>
+                            • Unlimited devices<br>
+                            • Apps last 1 year<br>
+                            • Full App Store access<br>
+                            • All provisioning options
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-success">
+                <strong>💡 Tip:</strong> For WDA automation testing, a <strong>Free Apple ID</strong> works perfectly!
+                You just need to re-sign WDA every 7 days.
+            </div>
+        </div>
+
+        <!-- Step by Step Guide -->
+        <div class="card">
+            <h2>📝 Step-by-Step: Using Free Apple ID</h2>
+            <p>Follow these steps to set up WDA signing with a free Apple ID:</p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Create or Use Existing Apple ID</h4>
+                    <p>If you don't have an Apple ID, create one at <a href="https://appleid.apple.com"
+                            target="_blank">appleid.apple.com</a>. If you already have one (for iCloud, iPhone, etc.),
+                        you can use that.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Open Xcode</h4>
+                    <p>Launch Xcode on your Mac. You'll need to sign in with your Apple ID.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Add Your Apple ID to Xcode</h4>
+                    <p>Go to <strong>Xcode → Settings → Accounts</strong> (or Preferences in older versions). Click the
+                        <strong>+</strong> button and select "Apple ID". Sign in with your credentials.</p>
+                    <div class="image-placeholder">
+                        <span>📸</span>
+                        Xcode → Settings → Accounts → Add Apple ID
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Get Your Team ID</h4>
+                    <p>After adding your account, click on your Apple ID in the sidebar. You'll see your
+                        <strong>Personal Team</strong> listed. The Team ID is shown in the details or you can find it in
+                        the provisioning profile.</p>
+                    <p>For free accounts, your Team ID typically starts with letters and numbers (e.g.,
+                        <code>A1B2C3D4E5</code>).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Open WDA Project in Xcode</h4>
+                    <p>Open the WebDriverAgent project in Xcode. It's located at:</p>
+                    <code>~/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgent.xcodeproj</code>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Configure Signing</h4>
+                    <p>In Xcode:</p>
+                    <ol>
+                        <li>Select "WebDriverAgentRunner" target</li>
+                        <li>Go to "Signing & Capabilities" tab</li>
+                        <li>Check "Automatically manage signing"</li>
+                        <li>Select your Personal Team from the dropdown</li>
+                        <li>If asked, allow Xcode to fix bundle identifier issues</li>
+                    </ol>
+                    <div class="image-placeholder">
+                        <span>⚙️</span>
+                        Xcode → WebDriverAgentRunner → Signing & Capabilities
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h4>Trust the Developer on Device</h4>
+                    <p>On your iOS device, go to <strong>Settings → General → VPN & Device Management</strong>. Find
+                        your developer profile and tap "Trust".</p>
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Important:</strong> You must trust the developer certificate on the device before WDA
+                        can run!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finding Team ID -->
+        <div class="card">
+            <h2>🔍 How to Find Your Team ID</h2>
+
+            <h3>Option 1: From Xcode</h3>
+            <ol>
+                <li>Open <strong>Xcode → Settings → Accounts</strong></li>
+                <li>Select your Apple ID</li>
+                <li>Click "Manage Certificates" or view your team details</li>
+                <li>Your Team ID is displayed in the team information</li>
+            </ol>
+
+            <h3>Option 2: From Apple Developer Portal</h3>
+            <ol>
+                <li>Go to <a href="https://developer.apple.com/account" target="_blank">developer.apple.com/account</a>
+                </li>
+                <li>Sign in with your Apple ID</li>
+                <li>Click on "Membership" in the sidebar</li>
+                <li>Your <strong>Team ID</strong> is listed on this page</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4>📋 Team ID Format</h4>
+                <p>A Team ID is a 10-character alphanumeric string like: <code>A1B2C3D4E5</code></p>
+                <p>Enter this ID in the WDA Runner's "Development Team ID" field.</p>
+            </div>
+        </div>
+
+        <!-- Paid Account -->
+        <div class="card">
+            <h2>💎 Apple Developer Program (Paid)</h2>
+            <p>If you need longer-lasting certificates or are doing continuous integration, you might want a paid
+                account:</p>
+
+            <ol>
+                <li>Go to <a href="https://developer.apple.com/programs/enroll/"
+                        target="_blank">developer.apple.com/programs/enroll</a></li>
+                <li>Sign in with your Apple ID</li>
+                <li>Follow the enrollment process</li>
+                <li>Pay the $99/year fee</li>
+                <li>Wait for Apple to verify your enrollment (usually 24-48 hours)</li>
+            </ol>
+
+            <a href="https://developer.apple.com/programs/" target="_blank" class="external-link">
+                <span>🔗</span> Apple Developer Program Official Page
+            </a>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="card">
+            <h2>🔧 Troubleshooting Common Issues</h2>
+
+            <h3>❌ "Could not find a valid code signature"</h3>
+            <p>Solution: Make sure you've selected your team in Xcode's Signing & Capabilities, and the bundle
+                identifier is unique.</p>
+
+            <h3>❌ "Untrusted Developer"</h3>
+            <p>Solution: On your iOS device, go to Settings → General → VPN & Device Management, find your developer
+                profile and tap "Trust".</p>
+
+            <h3>❌ "Maximum 3 devices" error</h3>
+            <p>Solution: Free accounts are limited to 3 devices. Remove unused devices from your Apple ID or upgrade to
+                a paid account.</p>
+
+            <h3>❌ "App requires provisioning profile"</h3>
+            <p>Solution: Ensure "Automatically manage signing" is checked in Xcode and you have a valid Team selected.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="card">
+            <h2>🔗 Helpful Links</h2>
+            <p>Official resources for more information:</p>
+            <ul>
+                <li><a href="https://developer.apple.com/account" target="_blank">Apple Developer Account Portal</a>
+                </li>
+                <li><a href="https://developer.apple.com/programs/enroll/" target="_blank">Apple Developer Program
+                        Enrollment</a></li>
+                <li><a href="https://appium.io/docs/en/2.0/guides/caps/" target="_blank">Appium Capabilities
+                        Documentation</a></li>
+                <li><a href="https://github.com/appium/appium-xcuitest-driver" target="_blank">Appium XCUITest Driver
+                        GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

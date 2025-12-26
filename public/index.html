@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDA Runner - WebDriverAgent Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header - Sticky -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>WDA Runner</h1>
+            </div>
+            <div class="status-badge" id="wdaStatusBadge">
+                <span class="status-dot"></span>
+                <span class="status-text">Checking...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel - Controls -->
+            <section class="control-panel">
+                <!-- Device Selection -->
+                <div class="panel-card">
+                    <div class="card-header">
+                        <h2>📱 Device Selection</h2>
+                        <button class="btn-icon" id="refreshDevices" title="Refresh devices">🔄</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="device-type-tabs">
+                            <button class="tab-btn active" data-type="simulator">Simulators</button>
+                            <button class="tab-btn" data-type="physical">Physical Devices</button>
+                        </div>
+                        <div class="device-list" id="deviceList">
+                            <div class="loading-spinner">Loading devices...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration -->
+                <div class="panel-card" id="configPanel">
+                    <div class="card-header">
+                        <h2>🔐 Signing Configuration</h2>
+                        <span class="badge badge-info">Real Device Only</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="teamId">Development Team ID</label>
+                            <input type="text" id="teamId" placeholder="e.g., A1B2C3D4E5" autocomplete="off">
+                            <span class="form-hint">Found in Apple Developer Account → Membership</span>
+                            <a href="developer-guide.html" class="help-link" target="_blank">
+                                <span>📘</span> How to get a Developer Account?
+                            </a>
+                        </div>
+                        <div class="form-group">
+                            <label for="wdaPort">WDA Port</label>
+                            <input type="number" id="wdaPort" value="8100" min="1024" max="65535">
+                        </div>
+                        <div class="form-group">
+                            <label for="appiumHome">Appium Home</label>
+                            <input type="text" id="appiumHome" placeholder="~/.appium">
+                        </div>
+                        <button class="btn btn-secondary" id="saveConfig">
+                            <span>💾</span> Save Configuration
+                        </button>
+                    </div>
+                </div>
+
+                <!-- WDA Controls -->
+                <div class="panel-card">
+                    <div class="card-header">
+                        <h2>🎮 WDA Controls</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="wda-info" id="wdaInfo">
+                            <p><strong>Selected:</strong> <span id="selectedDeviceName">No device selected</span></p>
+                            <p><strong>Server URL:</strong> <code id="serverUrl">http://127.0.0.1:8100</code></p>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-primary" id="installWda" disabled>
+                                <span>📦</span> Install WDA
+                            </button>
+                            <button class="btn btn-success" id="startWda" disabled>
+                                <span>▶️</span> Start WDA
+                            </button>
+                            <button class="btn btn-danger" id="stopWda" disabled>
+                                <span>⏹️</span> Stop WDA
+                            </button>
+                        </div>
+                        <div class="wda-check" id="wdaCheck">
+                            <span class="check-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="panel-card">
+                    <div class="card-header">
+                        <h2>🛠️ Quick Actions</h2>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-outline" id="installDriver">
+                            <span>📥</span> Install/Update XCUITest Driver
+                        </button>
+                        <button class="btn btn-outline" id="checkWdaProject">
+                            <span>🔍</span> Check WDA Project
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel - Logs -->
+            <section class="log-panel">
+                <div class="panel-card log-card">
+                    <div class="card-header">
+                        <h2>📋 Live Logs</h2>
+                        <div class="log-controls">
+                            <button class="btn-icon" id="clearLogs" title="Clear logs">🗑️</button>
+                            <button class="btn-icon" id="toggleAutoScroll" title="Toggle auto-scroll">📜</button>
+                        </div>
+                    </div>
+                    <div class="log-terminal" id="logTerminal">
+                        <div class="log-entry info">
+                            <span class="log-time">[--:--:--]</span>
+                            <span class="log-message">Waiting for connection...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>WDA Runner v1.0 • WebDriverAgent Management Utility</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
