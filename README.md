@@ -15,6 +15,10 @@ A modern web interface utility to install and start WebDriverAgent (WDA) on iOS 
 - **📘 Developer Guide** - Built-in guide on how to get Apple Developer account
 - **🎨 Modern UI** - Clean, responsive light theme interface
 
+## 📸 Screenshot
+
+![WDA Runner Interface](screenshots/wda-runner-screenshot.png)
+
 ## 📋 Prerequisites
 
 Before using WDA Runner, ensure you have the following installed:
